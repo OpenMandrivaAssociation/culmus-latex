@@ -14,7 +14,6 @@ Patch1: mkCLMtfm.sh.patch
 License: GPL
 Group: Publishing
 Url: http://ivritex.sourceforge.net/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch: noarch
 Requires: fonts-type1-hebrew, tetex
 BuildRequires: fonts-type1-hebrew, tetex-afm, tetex
