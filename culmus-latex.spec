@@ -1,44 +1,38 @@
-%define name culmus-latex
-%define version 0.5
-%define release %mkrel 3
+%define name	culmus-latex
+%define version 0.7
+%define release %mkrel 1
 
 %define texmfdir %{_datadir}/texmf
 
-Summary: Culmus Hebrew fonts for LaTeX
-Name: %{name}
-Version: %{version}
-Release: %{release}
-Source0: %{name}-%{version}.tar.bz2
-Patch0: Makefile.patch
-Patch1: mkCLMtfm.sh.patch
-License: GPL
-Group: Publishing
-Url: http://ivritex.sourceforge.net/
-BuildRoot: %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-BuildArch: noarch
-Requires: fonts-type1-hebrew, tetex
-BuildRequires: fonts-type1-hebrew, tetex-afm, tetex
-Obsoletes: ivritex
+Summary: 	 Culmus Hebrew fonts for LaTeX
+Name: 		 %{name}
+Version: 	 %{version}
+Release: 	 %{release}
+Source0: 	 %{name}-%{version}-r1.tar.gz
+Patch0: 	 Makefile.patch
+License: 	 GPLv2
+Group: 		 Publishing
+Url: 		 http://ivritex.sourceforge.net/
+BuildRoot: 	 %{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildArch: 	 noarch
+Requires: 	 fonts-type1-hebrew, tetex
+BuildRequires: 	 fonts-type1-hebrew, tetex-afm, tetex
+Obsoletes: 	 ivritex
 
 %description
 This package provides LaTeX support for the Hebrew fonts distributed by the
 Culmus Project.
 
 %prep
-%setup -q
+%setup -q -n %{name}-%{version}-r1
 %patch0 -p0
-%patch1 -p0
-
-%build
 
 %install
-rm -rf $RPM_BUILD_ROOT
-%__perl -pi -e 's,/usr/share/texmf,%{buildroot}/usr/share/texmf,' Makefile
-%__perl -pi -e 's,/usr/share/fonts/hebrew,/usr/share/fonts/type1/hebrew,' Makefile
-make pkginstall
+%__rm -rf %{buildroot}
+make DESTDIR=%{buildroot} pkginstall
 
 %clean
-rm -rf $RPM_BUILD_ROOT
+%__rm -rf %{buildroot}
 
 %post
 mktexlsr
@@ -50,11 +44,11 @@ updmap-sys --disable culmus.map --quiet
 
 %files
 %defattr(-,root,root)
-%doc README GNU-GPL culmus-ex.tex hebhello.tex
+%doc README GNU-GPL LICENSE-Culmus examples/
 %{texmfdir}/fonts/afm/public/culmus
 %{texmfdir}/fonts/type1/public/culmus
 %{texmfdir}/fonts/enc/dvips/culmus
-%{texmfdir}/fonts/map/dvips/culmus
+%{texmfdir}/fonts/map/dvips/culmus.map
 %{texmfdir}/fonts/tfm/public/culmus
 %{texmfdir}/fonts/vf/public/culmus
 %{texmfdir}/tex/latex/culmus
