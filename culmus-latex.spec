@@ -1,6 +1,6 @@
 %define name	culmus-latex
 %define version 0.7
-%define release %mkrel 1
+%define release %mkrel 2
 
 %define texmfdir %{_datadir}/texmf
 
