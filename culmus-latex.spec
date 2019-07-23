@@ -7,7 +7,7 @@
 Summary: 	 Culmus Hebrew fonts for LaTeX
 Name: 		 %{name}
 Version: 	 %{version}
-Release: 	 %{release}
+Release:	1
 Source0: 	 %{name}-%{version}-r1.tar.gz
 Patch0: 	 Makefile.patch
 License: 	 GPLv2
