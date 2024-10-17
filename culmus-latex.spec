@@ -12,7 +12,7 @@ Source0: 	 %{name}-%{version}-r1.tar.gz
 Patch0: 	 Makefile.patch
 License: 	 GPLv2
 Group: 		 Publishing
-Url: 		 http://ivritex.sourceforge.net/
+Url: 		 https://ivritex.sourceforge.net/
 BuildRoot: 	 %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch: 	 noarch
 Requires: 	 fonts-type1-hebrew, tetex
