@@ -16,6 +16,7 @@ Url: 		 https://ivritex.sourceforge.net/
 BuildRoot: 	 %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 BuildArch: 	 noarch
 Requires: 	 fonts-type1-hebrew, tetex
+BuildRequires:	make
 BuildRequires: 	 fonts-type1-hebrew, tetex-afm, tetex
 Obsoletes: 	 ivritex
 
