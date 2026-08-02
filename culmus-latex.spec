@@ -1,5 +1,5 @@
 %define name	culmus-latex
-%define version 0.7
+%define version 0.7.1
 %define release 3
 
 %define texmfdir %{_datadir}/texmf
@@ -8,7 +8,8 @@ Summary: 	 Culmus Hebrew fonts for LaTeX
 Name: 		 %{name}
 Version: 	 %{version}
 Release:	1
-Source0: 	 %{name}-%{version}-r1.tar.gz
+# Upstream still ships as 0.7-r1; packaging version 0.7.1 maps to that tarball
+Source0: 	 %{name}-0.7-r1.tar.gz
 Patch0: 	 Makefile.patch
 License: 	 GPLv2
 Group: 		 Publishing
@@ -25,8 +26,8 @@ This package provides LaTeX support for the Hebrew fonts distributed by the
 Culmus Project.
 
 %prep
-%setup -q -n %{name}-%{version}-r1
-%patch0 -p0
+%setup -q -n %{name}-0.7-r1
+%patch -P0 -p0
 
 %install
 %__rm -rf %{buildroot}
